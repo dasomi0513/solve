@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>신비한 점집</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Stylish&display=swap');
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #1a0f30;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(71, 43, 186, 0.2), transparent),
+                url('data:image/svg+xml,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M 0,0 L 200,0 L200,200 L0,200 z" fill="%231a0f30"/><circle cx="20" cy="20" r="1" fill="white" opacity="0.5"/></svg>');
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            max-width: 600px;
+            background: rgba(41, 20, 93, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(138, 43, 226, 0.2);
+            position: relative;
+            border: 2px solid rgba(138, 43, 226, 0.3);
+        }
+
+        .fortune-teller {
+            width: 150px;
+            height: 150px;
+            margin: -100px auto 20px;
+            background: url('https://i.imgur.com/your-image.png') center/cover;
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.4);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h1 {
+            font-family: 'Stylish', sans-serif;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+        }
+
+        .instruction {
+            color: #b19cd9;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        #answer-box {
+            background: rgba(25, 12, 57, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(138, 43, 226, 0.3);
+        }
+
+        #answer-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.1) 0%, transparent 70%);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        #answer {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        button {
+            background: linear-gradient(45deg, #8a2be2, #4b0082);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Stylish', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.4);
+        }
+
+        button:disabled {
+            background: #666;
+            cursor: not-allowed;
+        }
+
+        .sparkles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .sparkle {
+            position: absolute;
+            background: white;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="fortune-teller"></div>
+        <h1>당신의 고민은 무엇인가요? </h1>
+        <p class="instruction">결정이 필요한 순간<br>아래 버튼을 눌러보세요</p>
+        <div id="answer-box">
+            <div id="answer">운명의 답을 기다리고 있습니다...</div>
+        </div>
+        <button onclick="getAnswer()">운명의 답 보기</button>
+    </div>
+
+    <script>
+        const answers = [
+            "지금 당장 시작하라",
+            "포기하지 마라",
+            "믿어라",
+            "기다려라",
+            "용기를 가져라",
+            "변화하라",
+            "놓아라",
+            "받아들여라",
+            "도전하라",
+            "움직여라",
+            "집중하라",
+            "진실을 말하라",
+            "직진하라",
+            "멈추어라",
+            "다시 시작하라",
+            "과감히 버려라",
+            "지금이 기회다",
+            "한 걸음 물러서라",
+            "깊이 생각하라",
+            "단순하게 가라",
+            "본질을 보라",
+            "마음을 열어라",
+            "행동으로 보여라",
+            "시간이 해결한다",
+            "흐름을 따르라",
+            "직감을 믿어라",
+            "방향을 바꿔라",
+            "새롭게 시작하라",
+            "과거를 놓아라",
+            "미래를 그려라",
+            "지금에 집중하라",
+            "단호히 거절하라",
+            "겸손히 수용하라",
+            "천천히 진행하라",
+            "빠르게 결정하라",
+            "한계를 깨라",
+            "규칙을 바꿔라",
+            "질서를 만들어라",
+            "균형을 찾아라",
+            "본능을 따르라",
+            "이성적으로 판단하라",
+            "감정을 인정하라",
+            "책임을 져라",
+            "자유롭게 표현하라",
+            "경계를 지켜라",
+            "변화를 받아들여라",
+            "초심으로 돌아가라",
+            "목표를 세워라",
+            "계획을 수정하라",
+            "기준을 높여라",
+            "단순화하라",
+            "핵심을 보라",
+            "전체를 보라",
+            "세부사항을 챙겨라",
+            "기본에 충실하라",
+            "창의적으로 생각하라",
+            "관점을 바꿔라",
+            "다르게 접근하라",
+            "패턴을 깨라",
+            "습관을 바꿔라",
+            "원칙을 지켜라",
+            "유연하게 대처하라",
+            "단단히 준비하라",
+            "즉시 실행하라",
+            "철저히 분석하라",
+            "직접 확인하라",
+            "신중히 결정하라",
+            "과감히 도전하라",
+            "끝까지 가라",
+            "한계를 시험하라",
+            "새로움을 찾아라",
+            "기회를 잡아라",
+            "위험을 감수하라",
+            "안전하게 가라",
+            "천천히 진행하라",
+            "빠르게 움직여라",
+            "깊이 성찰하라",
+            "넓게 보라",
+            "작게 시작하라",
+            "크게 생각하라",
+            "현실을 직시하라",
+            "꿈을 키워라",
+            "가능성을 믿어라",
+            "한계를 인정하라",
+            "도움을 구하라",
+            "혼자 해결하라",
+            "함께 가라",
+            "독립적으로 행동하라",
+            "책임감을 가져라",
+            "자유롭게 생각하라",
+            "규칙을 지켜라",
+            "창의적으로 해결하라",
+            "논리적으로 판단하라",
+            "감정을 따르라",
+            "이성적으로 결정하라",
+            "직관을 믿어라",
+            "경험을 활용하라",
+            "새롭게 배워라",
+            "지식을 넓혀라",
+            "실천하라",
+            "인내하라",
+            "즐겨라",
+            "도전하라",
+            "성장하라",
+            "변화하라",
+            "적응하라",
+            "혁신하라",
+            "창조하라",
+            "발전하라",
+            "진화하라",
+            "초월하라",
+            "완성하라",
+            "시작하라",
+            "끝내라",
+            "계속하라"
+        ];
+
+        let intervalId;
+        
+        function getAnswer() {
+            const button = document.querySelector('button');
+            const answerElement = document.getElementById('answer');
+            const answerBox = document.getElementById('answer-box');
+            button.disabled = true;
+            
+            // 신비로운 효과를 위한 초기화
+            answerElement.style.opacity = '0.3';
+            createSparkles();
+            
+            let speed = 50;
+            let duration = 0;
+            const maxDuration = 3000;
+            
+            // 룰렛 효과 시작
+            setTimeout(() => {
+                intervalId = setInterval(() => {
+                    answerElement.style.opacity = '1';
+                    answerElement.textContent = answers[Math.floor(Math.random() * answers.length)];
+                    duration += speed;
+                    
+                    if (duration > maxDuration / 2) {
+                        speed += 10;
+                    }
+                    
+                    if (duration >= maxDuration) {
+                        clearInterval(intervalId);
+                        const finalAnswer = answers[Math.floor(Math.random() * answers.length)];
+                        answerElement.textContent = finalAnswer;
+                        button.disabled = false;
+                        removeSparkles();
+                    }
+                }, speed);
+            }, 500);
+        }
+
+        // 반짝이는 효과 생성
+        function createSparkles() {
+            const sparklesContainer = document.createElement('div');
+            sparklesContainer.className = 'sparkles';
+            
+            for (let i = 0; i < 30; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animation = `twinkle ${Math.random() * 2 + 1}s infinite`;
+                sparklesContainer.appendChild(sparkle);
+            }
+            
+            document.querySelector('#answer-box').appendChild(sparklesContainer);
+        }
+
+        function removeSparkles() {
+            const sparkles = document.querySelector('.sparkles');
+            if (sparkles) sparkles.remove();
+        }
+    </script>
+</body>
+</html>
