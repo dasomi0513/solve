@@ -165,27 +165,34 @@
         background: rgba(41, 20, 93, 0.9);
         border-radius: 20px;
     }
-
-    button {
-        width: 200px;
-        padding: 12px 30px;
+button {
+        background: linear-gradient(45deg, #8a2be2, #4b0082);
+        color: white;
+        border: none;
+        padding: 15px 40px;
         font-size: 1.2em;
-        position: absolute;
-        bottom: 20px; /* 15px에서 30px로 늘림 */
-        left: 50%;
-        transform: translateX(-50%);
-        transition: none;
+        border-radius: 30px;
         cursor: pointer;
-        user-select: none;
-        -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
+        transition: all 0.3s;
+        font-family: 'Stylish', sans-serif;
+        position: relative; /* absolute에서 relative로 변경 */
+        overflow: hidden;
+        width: 200px;
+        display: block; /* 블록 레벨 요소로 변경 */
+        margin: 20px auto; /* 상하 여백과 가운데 정렬 */
     }
 
-    button:active {
-        position: absolute;
-        bottom: 30px;
-        transform: translateX(-50%);
+    button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 20px rgba(138, 43, 226, 0.4);
     }
+
+    button:disabled {
+        background: #666;
+        cursor: not-allowed;
+    }
+}
+
       #answer-box {
         background: rgba(25, 12, 57, 0.9);
         padding: 30px;
