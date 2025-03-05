@@ -150,14 +150,14 @@
         margin: 0;
         padding: 0;
         display: flex;
-        justify-content: flex-start; /* center에서 변경 */
+        justify-content: flex-start;
     }
 
     .container {
         width: 320px;
-        margin: 5px auto; /* 10px에서 5px로 줄임 */
-        padding: 5px 20px; /* 10px에서 5px로 줄임 */
-        height: 580px; /* 높이 조정 */
+        margin: 5px auto;
+        padding: 5px 20px;
+        height: 650px; /* 580px에서 650px로 더 늘림 */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -166,41 +166,27 @@
         border-radius: 20px;
     }
 
-    h1 {
-        font-size: 3.0em;
-        margin: 0 0 5px 0;
-        padding: 0;
-        line-height: 1.2;
-        text-shadow: 0 0 15px rgba(138, 43, 226, 0.7);
-        position: relative;
-        top: 0;
-    }
-
-    #answer-box {
-        width: 80%;
-        height: 40px;
-        margin: 5px auto;
-    }
-
-    #answer {
-        font-size: 1.4em;
-        padding: 0 5px;
-    }
-
     button {
         width: 200px;
         padding: 12px 30px;
         font-size: 1.2em;
         position: absolute;
-        bottom: 15px;
+        bottom: 30px; /* 15px에서 30px로 늘림 */
         left: 50%;
+        transform: translateX(-50%);
+        transition: none;
+        cursor: pointer;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
+
+    button:active {
+        position: absolute;
+        bottom: 30px;
         transform: translateX(-50%);
     }
 }
-        button:active {
-        position: absolute; /* 클릭 시에도 position 유지 */
-        bottom: 15px; /* 클릭 시에도 위치 유지 */
-        transform: translateX(-50%); /* 클릭 시에도 중앙 정렬 유지 */
 }    </style>
 </head>
 <body>
