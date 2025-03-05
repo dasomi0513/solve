@@ -144,74 +144,29 @@
             0%, 100% { opacity: 0; }
             50% { opacity: 1; }
         }
-        @media (max-width: 600px) {
+     @media (max-width: 600px) {
     .container {
-        margin-top: 50px; /* 100px에서 50px로 감소 */
-        width: 95%;
-        padding: 10px 10px;
+        width: 85%; /* 화면 너비의 85%로 조정 */
+        margin-top: 30px;
+        padding: 15px;
+    }
+
+    #answer-box {
+        width: 100%; /* 컨테이너 안에 맞게 조정 */
+        height: 80px;
+        margin: 15px auto;
+        padding: 10px;
     }
 
     h1 {
         font-size: 1.6em;
-    }
-
-    #answer-box {
-        height: 90px;
-        width: 95%;
-        margin: 10px auto;
-    }
-
-    #answer {
-        font-size: 1.2em;
-        padding: 0 5px;
+        margin: 8px 0;
     }
 
     button {
+        width: 180px;
+        font-size: 1.1em;
         padding: 10px 25px;
-        font-size: 1em;
-        width: 90%;
-        max-width: 280px;
-    }
-}
-@media (max-width: 600px) {
-    body {
-        background: #150b25;
-        padding: 0;
-        margin: 0;
-        min-height: 100vh;
-        overflow-x: hidden;
-    }
-
-    .container {
-        width: 300px;
-        margin-top: 40px;
-        padding: 20px;
-        box-sizing: border-box;
-    }
-
-    h1 {
-        font-size: 1.8em;
-        margin: 10px 0;
-        white-space: nowrap;
-    }
-
-    #answer-box {
-        height: 90px;
-        width: 100%;
-        margin: 15px auto;
-        padding: 15px;
-    }
-
-    #answer {
-        font-size: 1.5em;
-        padding: 0 10px;
-    }
-
-    button {
-        width: 200px;
-        padding: 12px 30px;
-        font-size: 1.2em;
-        margin: 15px auto;
     }
 }
    </style>
