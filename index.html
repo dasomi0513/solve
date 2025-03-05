@@ -180,11 +180,10 @@
         width: 200px;
         padding: 12px 30px;
         font-size: 1.2em;
-        position: fixed; /* fixed에서 relative로 변경 */
-        margin-top: 20px; /* 상단 여백 추가 */
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 100;
+        position: static; /* fixed에서 relative로 변경 */
+        margin: 20px auto; /* 좌우 마진을 auto로 설정 */
+        display: block; /* 블록 레벨 요소로 변경 */
+        transform: none; /* transform 제거 */
     }
 }
 }    </style>
