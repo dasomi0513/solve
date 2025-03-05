@@ -147,28 +147,30 @@
 @media (max-width: 600px) {
     .container {
         width: 320px;
-        margin: -10 auto;  /* 상단 여백 제거 */
-        padding: 0px 0px; /* 패딩 줄임 */
-        min-height: 300px; /* 전체 높이 대폭 줄임 */
+        margin: 0 auto;
+        padding: 0 20px;
+        min-height: 300px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: space-between; /* 요소들 사이 공간 분배 */
         position: relative;
     }
 
     h1 {
         font-size: 3.0em;
-        margin: -10px 0 5px 0; /* 하단 여백 줄임 */
-        padding: 0; /* 패딩 제거 *
+        margin: -20px 0 5px 0;
+        padding: 0;
         line-height: 1.2;
         text-shadow: 0 0 15px rgba(138, 43, 226, 0.7);
-
+        position: relative;
+        top: -10px;
     }
 
     #answer-box {
         width: 80%;
-        height: 40px; /* 높이 줄임 */
-        margin: 10px auto; /* 여백 줄임 */
+        height: 40px;
+        margin: 10px auto;
     }
 
     #answer {
@@ -180,10 +182,10 @@
         width: 200px;
         padding: 12px 30px;
         font-size: 1.2em;
-        position: static; /* fixed에서 relative로 변경 */
-        margin: 20px auto; /* 좌우 마진을 auto로 설정 */
-        display: block; /* 블록 레벨 요소로 변경 */
-        transform: none; /* transform 제거 */
+        position: absolute; /* 절대 위치로 변경 */
+        bottom: 0; /* 컨테이너 맨 아래에 위치 */
+        left: 50%;
+        transform: translateX(-50%); /* 가운데 정렬 */
     }
 }
 }    </style>
