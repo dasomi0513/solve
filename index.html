@@ -149,12 +149,11 @@
         width: 320px;
         margin: 0 auto;
         padding: 0 20px;
-        min-height: 300px;
+        min-height: 550px; /* 컨테이너 길이 증가 */
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-between; /* 요소들 사이 공간 분배 */
-        position: relative;
+        position: relative; /* 버튼 위치 기준점 */
     }
 
     h1 {
@@ -182,10 +181,10 @@
         width: 200px;
         padding: 12px 30px;
         font-size: 1.2em;
-        position: absolute; /* 절대 위치로 변경 */
-        bottom: 0; /* 컨테이너 맨 아래에 위치 */
+        position: absolute; /* fixed에서 absolute로 변경 */
+        bottom: 30px; /* 컨테이너 하단에서의 거리 */
         left: 50%;
-        transform: translateX(-50%); /* 가운데 정렬 */
+        transform: translateX(-50%);
     }
 }
 }    </style>
