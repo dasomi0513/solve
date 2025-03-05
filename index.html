@@ -144,9 +144,37 @@
             0%, 100% { opacity: 0; }
             50% { opacity: 1; }
         }
-        
+        @media (max-width: 600px) {
+    .container {
+        margin-top: 50px; /* 100px에서 50px로 감소 */
+        width: 95%;
+        padding: 10px 10px;
+    }
+
+    h1 {
+        font-size: 1.6em;
+    }
+
+    #answer-box {
+        height: 90px;
+        width: 95%;
+        margin: 10px auto;
+    }
+
+    #answer {
+        font-size: 1.2em;
+        padding: 0 5px;
+    }
+
+    button {
+        padding: 10px 25px;
+        font-size: 1em;
+        width: 90%;
+        max-width: 280px;
+    }
 }
-    </style>
+
+  </style>
 </head>
 <body>
     <div class="container">
