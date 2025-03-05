@@ -170,14 +170,14 @@
         font-size: 1em;
     }
 
-    #answer-box {
+       #answer-box {
         background: rgba(25, 12, 57, 0.9);
         padding: 30px;
         border-radius: 15px;
         margin: 20px 0;
         min-height: 120px;
-        max-height: 120px; /* 최대 높이 고정 */
-        height: 120px; /* 높이 고정 */
+        max-height: 120px;
+        height: 120px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -185,11 +185,11 @@
         overflow: hidden;
         border: 1px solid rgba(138, 43, 226, 0.3);
         width: 100%;
-        box-sizing: border-box; /* 패딩을 포함한 크기 계산 */
+        box-sizing: border-box;
     }
 
     #answer {
-        font-size: 1.8em;
+        font-size: 1.2em; /* 1.4em에서 1.2em로 더 축소 */
         font-weight: bold;
         color: #fff;
         text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
@@ -199,10 +199,17 @@
         text-align: center;
         padding: 0 10px;
         box-sizing: border-box;
-        white-space: nowrap; /* 텍스트 줄바꿈 방지 */
-        overflow: hidden; /* 넘치는 텍스트 숨김 */
-        text-overflow: ellipsis; /* 넘치는 텍스트 ... 처리 */
-        line-height: 1.2; /* 줄 높이 고정 */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.2;
+    }
+
+    /* 초기 텍스트에 대한 특별 스타일 */
+    #answer:contains("운명의 답을 기다리고 있습니다...") {
+        font-size: 1.1em; /* 초기 텍스트는 더 작게 */
+    }
+}
 
     button {
         margin: 15px auto; /* 버튼 여백 줄임 */
