@@ -144,6 +144,44 @@
             0%, 100% { opacity: 0; }
             50% { opacity: 1; }
         }
+        @media (max-width: 600px) {
+    .container {
+        width: 85%;
+        margin-top: 100px; /* 30px에서 100px로 증가 */
+        padding: 15px;
+        border: 2px solid rgba(138, 43, 226, 0.5);
+        animation: borderGlow 1.5s infinite alternate; /* 효과 추가 */
+    }
+
+    #answer-box {
+        width: 90%;
+        height: 80px;
+        margin: 15px auto;
+        padding: 10px;
+        border: 1px solid rgba(138, 43, 226, 0.5);
+        box-shadow: 0 0 20px rgba(138, 43, 226, 0.3); /* 효과 추가 */
+    }
+
+    #answer {
+        font-size: 1.5em;
+        width: 100%;
+        padding: 0 5px;
+        text-shadow: 0 0 15px rgba(138, 43, 226, 0.8); /* 효과 추가 */
+    }
+
+    h1 {
+        font-size: 1.6em;
+        margin: 8px 0;
+        text-shadow: 0 0 15px rgba(138, 43, 226, 0.7); /* 효과 추가 */
+    }
+
+    button {
+        width: 180px;
+        font-size: 1.1em;
+        padding: 10px 25px;
+        box-shadow: 0 0 20px rgba(138, 43, 226, 0.4); /* 효과 추가 */
+    }
+}
     </style>
 </head>
 <body>
