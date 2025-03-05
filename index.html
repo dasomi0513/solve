@@ -148,7 +148,7 @@
     .container {
         width: 320px;
         margin: -10 auto;  /* 상단 여백 제거 */
-        padding: 0px 10px; /* 패딩 줄임 */
+        padding: 0px 0px; /* 패딩 줄임 */
         min-height: 300px; /* 전체 높이 대폭 줄임 */
         display: flex;
         flex-direction: column;
@@ -158,9 +158,11 @@
 
     h1 {
         font-size: 3.0em;
-        margin: -10px; /* 하단 여백 줄임 */
+        margin: -20px 0 5px 0; /* 하단 여백 줄임 */
+        padding: 0; /* 패딩 제거 *
         line-height: 1.2;
         text-shadow: 0 0 15px rgba(138, 43, 226, 0.7);
+        top: -10px; 
     }
 
     #answer-box {
