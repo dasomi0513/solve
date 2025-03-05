@@ -166,30 +166,24 @@
         border-radius: 20px;
     }
 button {
-        background: linear-gradient(45deg, #8a2be2, #4b0082);
-        color: white;
-        border: none;
-        padding: 15px 40px;
-        font-size: 1.2em;
-        border-radius: 30px;
-        cursor: pointer;
-        transition: all 0.3s;
-        font-family: 'Stylish', sans-serif;
-        position: relative; /* absolute에서 relative로 변경 */
-        overflow: hidden;
         width: 200px;
-        display: block; /* 블록 레벨 요소로 변경 */
-        margin: 20px auto; /* 상하 여백과 가운데 정렬 */
+        padding: 12px 30px;
+        font-size: 1.2em;
+        position: absolute;
+        bottom: 20px; /* 15px에서 30px로 늘림 */
+        left: 50%;
+        transform: translateX(-50%);
+        transition: none;
+        cursor: pointer;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
     }
 
-    button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 20px rgba(138, 43, 226, 0.4);
-    }
-
-    button:disabled {
-        background: #666;
-        cursor: not-allowed;
+    button:active {
+        position: absolute;
+        bottom: 30px;
+        transform: translateX(-50%);
     }
 }
 
