@@ -144,28 +144,28 @@
             0%, 100% { opacity: 0; }
             50% { opacity: 1; }
         }
-        @media (max-width: 5000px) {
+@media (max-width: 5000px) {
     .container {
         width: 320px;
-        margin-top: 50px;
-        padding: 30px 20px;
-        min-height: 350px; /* 컨테이너 길이 더 증가 */
+        margin: 30px auto 30px auto; /* 상하 여백 동일하게 설정 */
+        padding: 20px 20px; /* 상단 패딩 줄임 */
+        min-height: 350px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: flex-start; /* 컨텐츠를 위로 붙임 */
     }
 
     h1 {
-        font-size: 3.0em; /* 글씨 크기 더 증가 */
-        margin: 20px 0 30px 0; /* 여백 조정 */
+        font-size: 3.0em;
+        margin: 0 0 20px 0; /* 상단 여백 제거, 하단 여백 조정 */
         line-height: 1.3;
         text-shadow: 0 0 15px rgba(138, 43, 226, 0.7);
     }
 
     #answer-box {
-        width: 50%;
-        height: 150px; /* 답변 박스 높이 증가 */
-        margin: 30px auto; /* 여백 증가 */
+        width: 85%; /* 90%에서 85%로 줄임 */
+        height: 150px;
+        margin: 20px auto; /* 여백 줄임 */
     }
 
     #answer {
@@ -177,10 +177,9 @@
         width: 200px;
         padding: 12px 30px;
         font-size: 1.2em;
-        margin: 50px auto 20px; /* 버튼 위쪽 여백 증가 */
+        margin: 30px auto 30px; /* 상하 여백 동일하게 */
     }
-}
-    </style>
+}    </style>
 </head>
 <body>
     <div class="container">
