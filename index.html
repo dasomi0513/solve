@@ -186,29 +186,45 @@
         bottom: 30px;
         transform: translateX(-50%);
     }
-        #answer-box {
-        width: 80%;
-        margin: 20px auto;
-        background: rgba(0, 0, 0, 0.3); /* 반투명한 검은색 배경 */
-        border-radius: 10px;
+      #answer-box {
+        background: rgba(25, 12, 57, 0.9);
+        padding: 30px;
+        border-radius: 15px;
+        margin: 20px 0;
+        min-height: 120px;
         display: flex;
         align-items: center;
         justify-content: center;
-        min-height: 40px;
-        max-height: 40px;
+        position: relative;
         overflow: hidden;
+        border: 1px solid rgba(138, 43, 226, 0.3);
+    }
+
+    #answer-box::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(138, 43, 226, 0.1) 0%, transparent 70%);
+        animation: rotate 10s linear infinite;
     }
 
     #answer {
-        font-size: 1.4em;
-        color: white;
-        width: 100%;
-        text-align: center;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        padding: 0 10px;
+        font-size: 1.8em;
+        font-weight: bold;
+        color: #fff;
+        text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+        position: relative;
+        z-index: 1;
     }
+
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+}
 }
 }    </style>
 </head>
