@@ -145,30 +145,25 @@
             50% { opacity: 1; }
         }
 @media (max-width: 600px) {
-    body {
-        min-height: 100vh;
-        margin: 0;
-        padding: 0;
-    }
-
     .container {
         width: 320px;
         margin: 0 auto;
-        padding: 0 20px 60px 20px; /* 하단 패딩 추가 */
-        min-height: 400px; /* 높이 증가 */
+        padding: 0 20px;
+        min-height: 300px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        position: relative;
     }
 
     h1 {
         font-size: 3.0em;
-        margin: -20px 0 5px 0;
-        padding: 0;
+        margin: -20px 0 5px 0; /* 상단 마진을 더 큰 음수값으로 설정 */
+        padding: 0; /* 패딩 제거 */
         line-height: 1.2;
         text-shadow: 0 0 15px rgba(138, 43, 226, 0.7);
-        position: relative;
-        top: -10px;
+        position: relative; /* 위치 조정을 위해 추가 */
+        top: -10px; /* 추가로 위로 올림 */
     }
 
     #answer-box {
@@ -186,11 +181,11 @@
         width: 200px;
         padding: 12px 30px;
         font-size: 1.2em;
-        position: fixed; /* absolute에서 fixed로 변경 */
-        bottom: 20px; /* 화면 하단에서의 거리 */
+        position: relative;
+        margin-top: 20px;
         left: 50%;
         transform: translateX(-50%);
-        z-index: 1000; /* 높은 z-index 값 설정 */
+        z-index: 100;
     }
 }
 }    </style>
