@@ -172,28 +172,37 @@
 
     #answer-box {
         background: rgba(25, 12, 57, 0.9);
-        padding: 20px; /* 패딩 줄임 */
+        padding: 30px;
         border-radius: 15px;
-        margin: 10px 0; /* 여백 줄임 */
-        min-height: 80px; /* 높이 줄임 */
-
-        min-height: 80px; /* 높이 줄임 */
+        margin: 20px 0;
+        min-height: 120px;
+        max-height: 120px; /* 최대 높이 고정 */
+        height: 120px; /* 높이 고정 */
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
         overflow: hidden;
         border: 1px solid rgba(138, 43, 226, 0.3);
+        width: 100%;
+        box-sizing: border-box; /* 패딩을 포함한 크기 계산 */
     }
 
     #answer {
-        font-size: 1.5em; /* 폰트 크기 줄임 */
+        font-size: 1.8em;
         font-weight: bold;
         color: #fff;
         text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
         position: relative;
         z-index: 1;
-    }
+        width: 100%;
+        text-align: center;
+        padding: 0 10px;
+        box-sizing: border-box;
+        white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+        overflow: hidden; /* 넘치는 텍스트 숨김 */
+        text-overflow: ellipsis; /* 넘치는 텍스트 ... 처리 */
+        line-height: 1.2; /* 줄 높이 고정 */
 
     button {
         margin: 15px auto; /* 버튼 여백 줄임 */
