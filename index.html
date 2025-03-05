@@ -144,28 +144,28 @@
             0%, 100% { opacity: 0; }
             50% { opacity: 1; }
         }
-@media (max-width: 5000px) {
+@media (max-width: 600px) {
     .container {
         width: 320px;
-        margin: 30px auto 30px auto; /* 상하 여백 동일하게 설정 */
-        padding: 20px 20px; /* 상단 패딩 줄임 */
-        min-height: 350px;
+        margin: 30px auto 30px auto;
+        padding: 20px 20px;
+        min-height: 500px; /* 버튼이 보이도록 높이 증가 */
         display: flex;
         flex-direction: column;
-        justify-content: flex-start; /* 컨텐츠를 위로 붙임 */
+        justify-content: flex-start;
     }
 
     h1 {
         font-size: 3.0em;
-        margin: 0 0 20px 0; /* 상단 여백 제거, 하단 여백 조정 */
+        margin: 0 0 20px 0;
         line-height: 1.3;
         text-shadow: 0 0 15px rgba(138, 43, 226, 0.7);
     }
 
     #answer-box {
-        width: 85%; /* 90%에서 85%로 줄임 */
+        width: 85%;
         height: 150px;
-        margin: 20px auto; /* 여백 줄임 */
+        margin: 20px auto;
     }
 
     #answer {
@@ -177,8 +177,12 @@
         width: 200px;
         padding: 12px 30px;
         font-size: 1.2em;
-        margin: 30px auto 30px; /* 상하 여백 동일하게 */
+        margin-top: auto; /* 버튼을 아래쪽에 배치 */
+        margin-bottom: 30px;
+        position: relative; /* 버튼 위치 조정 */
+        z-index: 1; /* 버튼이 항상 보이도록 */
     }
+}
 }    </style>
 </head>
 <body>
