@@ -186,6 +186,30 @@
         bottom: 30px;
         transform: translateX(-50%);
     }
+}@media (max-width: 600px) {
+    /* ... 다른 스타일들은 유지 ... */
+
+    #answer-box {
+        width: 80%;
+        height: 40px;
+        margin: 5px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 40px; /* 최소 높이 설정 */
+        max-height: 40px; /* 최대 높이 설정 */
+        overflow: hidden; /* 내용이 넘치면 숨김 */
+    }
+
+    #answer {
+        font-size: 1.4em;
+        padding: 0 5px;
+        width: 100%; /* 너비 설정 */
+        text-align: center; /* 텍스트 중앙 정렬 */
+        white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+        overflow: hidden; /* 넘치는 텍스트 숨김 */
+        text-overflow: ellipsis; /* 넘치는 텍스트에 ... 표시 */
+    }
 }
 }    </style>
 </head>
